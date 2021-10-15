@@ -65,7 +65,38 @@
   RPOP list 移除列表最后一个元素，返回移除的元素
   LREM list count value 移除列表中值为value的元素，移除count个。count 移除的元素个数，count>0 从头向尾遍历移除，count<0 从尾向头移除，count=0 移除全部匹配的元素
   
-  p14
+六、集合 (Set) 无序，不重复
+  SADD set value value value 添加数据
+  SMEMBERS set 获取集合中的成员
+  SCARD set 获取集合中元素的总数
+  SISMEMBER set key 判断集合中是否存在元素key
+  SRANDMEMBER set count 随机返回集合中count个元素
+  SREM set key1 key2 移除集合中一个或多个元素
+  SPOP set 随机移除集合中的一个元素
+  SDIFF set1 set2 返回2个集合之间的差异
+  SINTER set1 set2 求交集
+  SUNION set1 set2 求并集
   
+  有序集合操作
+  ZADD test key score ..... 添加数据
+  ZRANGE set start end 查询 WITHSCORES
+  ZREVRANGEBYSCORE set max min 范围查询，最大值最小值和换位
+  ZINCRBY set count key 给某个成员(key) 加 count 分
+  ZSCORE set key 查询集合中成员(key)分数
+ 
+七 、通用命令
+  KEYS * 查询所有key 
+  TYPE key 查询key的类型
+  EXISTS key key  查询key是否存在，可以查询多个
+  RENAME oldkey newkey 改名，将之前的key改为newkey
+  RANDOMKEY 随机返回一个key
+  MOVE key dbName 将当前库的key移动到指定的数据库(dbName)
   
-  
+八、过期时间操作
+  EXPIRE key time time秒后过期
+  TTL key 还剩余多少秒后过期
+  PTTL key 还剩余多少毫秒后过期
+  PERSIST key 移除过期时间设置 
+
+九、事务
+
